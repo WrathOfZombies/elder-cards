@@ -1,4 +1,4 @@
-![CI](https://github.com/WrathOfZombies/elder-cards/workflows/CI/badge.svg?branch=master&event=status)
+[![CI](https://github.com/WrathOfZombies/elder-cards/workflows/CI/badge.svg)](https://github.com/WrathOfZombies/elder-cards/actions?query=workflow%3ACI)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
