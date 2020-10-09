@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# generated
+/src/apollo/schema/generated.ts
+
 # production
 /build
 
