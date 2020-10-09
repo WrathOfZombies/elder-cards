@@ -20,25 +20,10 @@ type ElderCard {
   type: String!
 
   # The subtypes of the card (ex. Argonian, Dragon, Imperial)
-  subtypes: String!
-
-  # How much it costs to cast the card
-  cost: Int!
-
-  # How much damage the card can do
-  power: Int!
-
-  # The total health of the card
-  health: Int!
+  subtype: String!
 
   # The set that the card belongs to
-  set: ElderCardSet!
-
-  # The number of soul gems it costs to soul summon
-  soulSummon: Int!
-
-  # The number of soul gems it costs to soul trap
-  soulTrap: Int!
+  setname: String!
 
   # Rules of the card
   text: String!
@@ -49,18 +34,6 @@ type ElderCard {
   # The keywords of the card (ex. Assemble, Breakthrough, Charge)
   keywords: [String!]
 
-  # Is the card unique? Unqiue cards can only be included once per deck.
-  unique: Boolean!
-
+  # The image of the card
   imageUrl: String!
-}
-
-type ElderCardSet {
-  # The id of the set the card belongs to
-  id: ID!
-
-  # The name of the set the card belongs to
-  name: String!
-
-  meta: String!
 }

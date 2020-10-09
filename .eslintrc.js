@@ -8,7 +8,6 @@ module.exports = {
   ],
   plugins: ["@typescript-eslint", "react", "prettier"],
   rules: {
-    "comma-dangle": ["error",  "never"],
     quotes: "off",
     "@typescript-eslint/quotes": ["error", "double"],
   },
