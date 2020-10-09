@@ -1,0 +1,22 @@
+module.exports = {
+  root: true,
+  parser: "@typescript-eslint/parser",
+  extends: [
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+  ],
+  plugins: ["@typescript-eslint", "react", "prettier"],
+  rules: {
+    "comma-dangle": ["error",  "never"],
+    quotes: "off",
+    "@typescript-eslint/quotes": ["error", "double"],
+  },
+  parserOptions: {
+    project: "./tsconfig.json",
+  },
+  env: {
+    jest: true,
+    browser: true,
+  },
+};

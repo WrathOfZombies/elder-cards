@@ -1,0 +1,16 @@
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# generated
+/src/apollo/schema
+
+# production
+/build
+
+# misc
+*.css
+*.svg
+serviceWorker.ts

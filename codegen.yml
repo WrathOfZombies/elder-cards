@@ -1,0 +1,23 @@
+overwrite: true
+schema: 'src/apollo/schema/schema.graphql'
+# documents: 'src/**/*.gql'
+generates:
+  src/apollo/schema/generated.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+      - 'typescript-resolvers'
+    config:
+      reactApolloVersion: 3
+      withComponent: false
+      withHOC: false
+      withHooks: true      
+      immutableTypes: true
+      maybeValue: T | undefined
+      nonOptionalTypename: true
+      useTypeImports: true
+      # noSchemaStitching: true
+hooks:
+  afterOneFileWrite:
+    - prettier --write
