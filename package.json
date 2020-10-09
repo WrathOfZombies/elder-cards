@@ -44,7 +44,7 @@
     "test": "react-scripts test",
     "test:coverage": "npm test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "lint": "",
+    "lint": "eslint --color src/** --quiet --no-error-on-unmatched-pattern",
     "gql": "graphql-codegen --config codegen.yml",
     "gql:watch": "graphql-codegen --config codegen.yml --watch"
   },
