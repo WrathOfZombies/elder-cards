@@ -2,22 +2,28 @@ import * as React from "react";
 
 import { Image, Card, Flex, Text } from "@fluentui/react-northstar";
 
-interface IElderCardProps {
+export interface IBaseCardProps {
+  id: string;
   imageUrl: string;
   name: string;
   setName: "Core Set";
   subtype: string;
   text: string;
+  rarity: string;
 }
 
-export const ElderCard: React.FC<IElderCardProps> = ({
+export const BaseCard: React.FC<IBaseCardProps> = ({
+  id,
   imageUrl,
   name,
   subtype,
   setName,
   text,
+  rarity,
 }) => (
   <Card
+    id={id}
+    data-testid={id}
     elevated
     centered
     aria-roledescription="card with avatar, image and action buttons"
@@ -33,6 +39,7 @@ export const ElderCard: React.FC<IElderCardProps> = ({
         <Image width="100%" src={imageUrl} />
         <Text temporary content={text} />
         <Text size="small" content={setName} />
+        <Text content={rarity} size="small" />
       </Flex>
     </Card.Body>
   </Card>

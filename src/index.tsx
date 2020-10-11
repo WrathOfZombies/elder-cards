@@ -1,7 +1,9 @@
+import "./index.css";
+
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import { ElderCardsApp } from "./App";
+
+import { ElderCardsApp } from "./elder-cards-app";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
