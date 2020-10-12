@@ -5,10 +5,13 @@ import ReactDOM from "react-dom";
 
 import { ElderCardsApp } from "./elder-cards-app";
 import * as serviceWorker from "./serviceWorker";
+import { ErrorBoundary } from "components/error-boundary/error-boundary";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ElderCardsApp />
+    <ErrorBoundary>
+      <ElderCardsApp />
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById("root")
 );

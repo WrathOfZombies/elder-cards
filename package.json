@@ -3,25 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.2.2",
-    "@apollo/link-schema": "^2.0.0-beta.3",
     "@fluentui/react-northstar": "^0.51.2",
-    "graphql": "^15.3.0",
-    "graphql-tag": "^2.11.0",
     "lodash": "^4.17.20",
-    "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-error-boundary": "^3.0.2",
     "react-virtualized-auto-sizer": "^1.0.2",
+    "react-window-infinite-loader": "^1.0.5",
     "react-window": "^1.8.5",
-    "react-window-infinite-loader": "^1.0.5"
+    "react": "^16.13.1"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.17.3",
-    "@graphql-codegen/typescript": "^1.17.3",
-    "@graphql-codegen/typescript-operations": "^1.17.3",
-    "@graphql-codegen/typescript-react-apollo": "^1.17.3",
-    "@graphql-codegen/typescript-resolvers": "^1.17.3",
     "@types/enzyme": "^3.10.7",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^24.0.0",
@@ -48,21 +39,18 @@
     "typescript": "~4.0.3"
   },
   "scripts": {
-    "start": "concurrently \"yarn gql:watch\" \"react-scripts start\"",
-    "build": "yarn gql && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "test:coverage": "npm test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "lint": "eslint --color src/** --quiet --no-error-on-unmatched-pattern",
-    "gql": "graphql-codegen --config codegen.yml",
-    "gql:watch": "graphql-codegen --config codegen.yml --watch"
+    "lint": "eslint --color src/** --quiet --no-error-on-unmatched-pattern"    
   },
   "jest": {
     "collectCoverageFrom": [
       "**/*.{ts,tsx}",
       "!**/*.{d.ts}",
-      "!**/node_modules/**",
-      "!**/apollo/schema/**"
+      "!**/node_modules/**"      
     ],
     "coverageReporters": [
       "text",

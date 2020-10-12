@@ -10,13 +10,13 @@ import { useMemoizedValue } from "utilities/use-memoized-value";
 
 import { IAvailableSpace } from "./compute-available-space";
 
-import type { ElderCard } from "apollo/schema";
+import type { IElderCard } from "apollo/schema";
 
 export interface ICardGridProps extends IAvailableSpace {
   innerRef: React.Ref<any>;
-  items: ElderCard[];
+  items: IElderCard[];
   itemCount: number;
-  itemRenderer: (item: ElderCard, index: number) => React.ReactElement | null;
+  itemRenderer: (item: IElderCard, index: number) => React.ReactElement | null;
   onItemsRendered: FixedSizeGridProps["onItemsRendered"];
 }
 

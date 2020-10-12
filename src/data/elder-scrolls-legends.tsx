@@ -1,16 +1,16 @@
-import { ElderCard, ElderCardPage } from "apollo/schema";
 import { reduce } from "lodash";
 
-const DEFAULT_PAGE_SIZE = 20;
-const BASE_URL = "https://api.elderscrollslegends.io/v1";
+import { IElderCard, IElderCardPage } from "./elder-scrolls-legends.interface";
 
-const convertToElderCard = (cards: any): ElderCard[] => {
+const DEFAULT_PAGE_SIZE = 20;
+
+const convertToElderCard = (cards: any): IElderCard[] => {
   if (!cards) {
     return [];
   }
 
   cards = Array.isArray(cards) ? cards : [cards];
-  return reduce<any, ElderCard[]>(
+  return reduce<any, IElderCard[]>(
     cards,
     (acc, card) => {
       if (!card) {
@@ -18,17 +18,16 @@ const convertToElderCard = (cards: any): ElderCard[] => {
       }
 
       try {
-        const elderCard: ElderCard = {
-          __typename: "ElderCard",
+        const elderCard: IElderCard = {
           id: card.id,
           name: card.name,
           rarity: card.rarity,
           type: card.type,
-          subtype: card.subtype,
+          subtypes: card.subtypes ?? [],
           setname: card.set?.name ?? "",
           text: card.text,
-          attributes: card.attributes,
-          keywords: card.keywords,
+          attributes: card.attributes ?? [],
+          keywords: card.keywords ?? [],
           imageUrl: card.imageUrl,
         };
 
@@ -42,10 +41,9 @@ const convertToElderCard = (cards: any): ElderCard[] => {
   );
 };
 
-const convertToElderCardsPage = (json: any): ElderCardPage => {
+const convertToElderCardsPage = (json: any): IElderCardPage => {
   if (!json) {
     return {
-      __typename: "ElderCardPage",
       cards: [],
       totalCount: 0,
       pageSize: 20,
@@ -54,18 +52,15 @@ const convertToElderCardsPage = (json: any): ElderCardPage => {
 
   const cards = convertToElderCard(json.cards);
   return {
-    __typename: "ElderCardPage",
     cards,
-    nextPage: json.links?.next,
+    nextPage: json._links?.next,
     totalCount: json._totalCount ?? 0,
     pageSize: json._pageSize ?? DEFAULT_PAGE_SIZE,
   };
 };
 
-export const fetchCards = async (page?: string): Promise<ElderCardPage> => {
-  const res = await fetch(
-    page ?? `${BASE_URL}/cards?page=0&pageSize=${DEFAULT_PAGE_SIZE}`
-  );
+export const fetchCards = async (page: string): Promise<IElderCardPage> => {
+  const res = await fetch(page);
   const json = await res.json();
   return convertToElderCardsPage(json);
 };

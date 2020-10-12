@@ -1,23 +1,14 @@
+import { IElderCard } from "data/elder-scrolls-legends.interface";
 import * as React from "react";
 
-import { Image, Card, Flex, Text } from "@fluentui/react-northstar";
+import { Card, Flex, Image, Text } from "@fluentui/react-northstar";
 
-export interface IBaseCardProps {
-  id: string;
-  imageUrl: string;
-  name: string;
-  setName: "Core Set";
-  subtype: string;
-  text: string;
-  rarity: string;
-}
-
-export const BaseCard: React.FC<IBaseCardProps> = ({
+export const BaseCard: React.FC<IElderCard> = ({
   id,
   imageUrl,
   name,
-  subtype,
-  setName,
+  subtypes,
+  setname,
   text,
   rarity,
 }) => (
@@ -31,14 +22,16 @@ export const BaseCard: React.FC<IBaseCardProps> = ({
     <Card.Header>
       <Flex gap="gap.small" column hAlign="center">
         <Text content={name} size="medium" weight="bold" />
-        <Text content={subtype} size="small" />
+        {subtypes.map(subtype => (
+          <Text key={subtype} content={subtype} size="small" />
+        ))}
       </Flex>
     </Card.Header>
     <Card.Body>
       <Flex column gap="gap.small">
         <Image width="100%" src={imageUrl} />
         <Text temporary content={text} />
-        <Text size="small" content={setName} />
+        <Text size="small" content={setname} />
         <Text content={rarity} size="small" />
       </Flex>
     </Card.Body>
