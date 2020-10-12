@@ -16,6 +16,33 @@ body {
 }
 
 #root,
+#error,
 #elder-cards-app {
+  width: 100%;
   height: 100%;
+}
+
+#error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-robot {
+  position: relative;
+  background-image: url(/error-boundary.png);
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.error-robot:before {
+  position: absolute;
+  content: "Welp!";
+  top: 10rem;
+  left: 10rem;
+  font-size: 4rem;
+  font-family: 'Segoe UI Light';
 }
