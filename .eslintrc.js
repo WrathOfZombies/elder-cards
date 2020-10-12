@@ -10,6 +10,10 @@ module.exports = {
   rules: {
     quotes: "off",
     "@typescript-eslint/quotes": ["error", "double"],
+    "prettier/prettier": [
+      "error",
+      { endOfLine: "auto", trailingComma: "es5", singleQuote: false },
+    ],
   },
   parserOptions: {
     project: "./tsconfig.json",
