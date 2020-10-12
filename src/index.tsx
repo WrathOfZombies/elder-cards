@@ -1,12 +1,14 @@
+import "./index.css";
+
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+
+import { ElderCardsApp } from "./elder-cards-app";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ElderCardsApp />
   </React.StrictMode>,
   document.getElementById("root")
 );
