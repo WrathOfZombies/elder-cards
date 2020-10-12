@@ -3,7 +3,14 @@ schema {
 }
 
 type Query {
-  fetchCards: [ElderCard!]
+  cards(page: String): [ElderCardPage!]
+}
+
+type ElderCardPage {
+  cards: [ElderCard!]!
+  nextPage: String
+  totalCount: Int!
+  pageSize: Int!
 }
 
 type ElderCard {
