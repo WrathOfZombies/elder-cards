@@ -1,0 +1,481 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 0, width is 240 and height is 120 1`] = `
+Object {
+  "columnCount": 1,
+  "columnWidth": 300,
+  "gutterSize": 0,
+  "height": 120,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 240,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 0, width is 360 and height is 240 1`] = `
+Object {
+  "columnCount": 1,
+  "columnWidth": 320,
+  "gutterSize": 20,
+  "height": 240,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 360,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 0, width is 640 and height is 480 1`] = `
+Object {
+  "columnCount": 2,
+  "columnWidth": 306.6666666666667,
+  "gutterSize": 6.666666666666667,
+  "height": 480,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 640,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 0, width is 1024 and height is 720 1`] = `
+Object {
+  "columnCount": 3,
+  "columnWidth": 326,
+  "gutterSize": 26,
+  "height": 720,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 1024,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 0, width is 1280 and height is 720 1`] = `
+Object {
+  "columnCount": 4,
+  "columnWidth": 312,
+  "gutterSize": 12,
+  "height": 720,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 1280,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 0, width is 1366 and height is 768 1`] = `
+Object {
+  "columnCount": 4,
+  "columnWidth": 329.2,
+  "gutterSize": 29.2,
+  "height": 768,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 1366,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 0, width is 1920 and height is 1080 1`] = `
+Object {
+  "columnCount": 6,
+  "columnWidth": 314.2857142857143,
+  "gutterSize": 14.285714285714286,
+  "height": 1080,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 1920,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 0, width is 2560 and height is 1440 1`] = `
+Object {
+  "columnCount": 8,
+  "columnWidth": 315.55555555555554,
+  "gutterSize": 15.555555555555555,
+  "height": 1440,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 2560,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 0, width is 3440 and height is 1440 1`] = `
+Object {
+  "columnCount": 11,
+  "columnWidth": 310,
+  "gutterSize": 10,
+  "height": 1440,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 3440,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 0, width is 3820 and height is 2160 1`] = `
+Object {
+  "columnCount": 12,
+  "columnWidth": 315.38461538461536,
+  "gutterSize": 15.384615384615385,
+  "height": 2160,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 3820,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 5, width is 240 and height is 120 1`] = `
+Object {
+  "columnCount": 1,
+  "columnWidth": 300,
+  "gutterSize": 0,
+  "height": 120,
+  "rowCount": 5,
+  "rowHeight": 650,
+  "width": 240,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 5, width is 360 and height is 240 1`] = `
+Object {
+  "columnCount": 1,
+  "columnWidth": 320,
+  "gutterSize": 20,
+  "height": 240,
+  "rowCount": 5,
+  "rowHeight": 650,
+  "width": 360,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 5, width is 640 and height is 480 1`] = `
+Object {
+  "columnCount": 2,
+  "columnWidth": 306.6666666666667,
+  "gutterSize": 6.666666666666667,
+  "height": 480,
+  "rowCount": 3,
+  "rowHeight": 650,
+  "width": 640,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 5, width is 1024 and height is 720 1`] = `
+Object {
+  "columnCount": 3,
+  "columnWidth": 326,
+  "gutterSize": 26,
+  "height": 720,
+  "rowCount": 2,
+  "rowHeight": 650,
+  "width": 1024,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 5, width is 1280 and height is 720 1`] = `
+Object {
+  "columnCount": 4,
+  "columnWidth": 312,
+  "gutterSize": 12,
+  "height": 720,
+  "rowCount": 2,
+  "rowHeight": 650,
+  "width": 1280,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 5, width is 1366 and height is 768 1`] = `
+Object {
+  "columnCount": 4,
+  "columnWidth": 329.2,
+  "gutterSize": 29.2,
+  "height": 768,
+  "rowCount": 2,
+  "rowHeight": 650,
+  "width": 1366,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 5, width is 1920 and height is 1080 1`] = `
+Object {
+  "columnCount": 6,
+  "columnWidth": 314.2857142857143,
+  "gutterSize": 14.285714285714286,
+  "height": 1080,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 1920,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 5, width is 2560 and height is 1440 1`] = `
+Object {
+  "columnCount": 8,
+  "columnWidth": 315.55555555555554,
+  "gutterSize": 15.555555555555555,
+  "height": 1440,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 2560,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 5, width is 3440 and height is 1440 1`] = `
+Object {
+  "columnCount": 11,
+  "columnWidth": 310,
+  "gutterSize": 10,
+  "height": 1440,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 3440,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 5, width is 3820 and height is 2160 1`] = `
+Object {
+  "columnCount": 12,
+  "columnWidth": 315.38461538461536,
+  "gutterSize": 15.384615384615385,
+  "height": 2160,
+  "rowCount": 1,
+  "rowHeight": 650,
+  "width": 3820,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 43, width is 240 and height is 120 1`] = `
+Object {
+  "columnCount": 1,
+  "columnWidth": 300,
+  "gutterSize": 0,
+  "height": 120,
+  "rowCount": 43,
+  "rowHeight": 650,
+  "width": 240,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 43, width is 360 and height is 240 1`] = `
+Object {
+  "columnCount": 1,
+  "columnWidth": 320,
+  "gutterSize": 20,
+  "height": 240,
+  "rowCount": 43,
+  "rowHeight": 650,
+  "width": 360,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 43, width is 640 and height is 480 1`] = `
+Object {
+  "columnCount": 2,
+  "columnWidth": 306.6666666666667,
+  "gutterSize": 6.666666666666667,
+  "height": 480,
+  "rowCount": 22,
+  "rowHeight": 650,
+  "width": 640,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 43, width is 1024 and height is 720 1`] = `
+Object {
+  "columnCount": 3,
+  "columnWidth": 326,
+  "gutterSize": 26,
+  "height": 720,
+  "rowCount": 15,
+  "rowHeight": 650,
+  "width": 1024,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 43, width is 1280 and height is 720 1`] = `
+Object {
+  "columnCount": 4,
+  "columnWidth": 312,
+  "gutterSize": 12,
+  "height": 720,
+  "rowCount": 11,
+  "rowHeight": 650,
+  "width": 1280,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 43, width is 1366 and height is 768 1`] = `
+Object {
+  "columnCount": 4,
+  "columnWidth": 329.2,
+  "gutterSize": 29.2,
+  "height": 768,
+  "rowCount": 11,
+  "rowHeight": 650,
+  "width": 1366,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 43, width is 1920 and height is 1080 1`] = `
+Object {
+  "columnCount": 6,
+  "columnWidth": 314.2857142857143,
+  "gutterSize": 14.285714285714286,
+  "height": 1080,
+  "rowCount": 8,
+  "rowHeight": 650,
+  "width": 1920,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 43, width is 2560 and height is 1440 1`] = `
+Object {
+  "columnCount": 8,
+  "columnWidth": 315.55555555555554,
+  "gutterSize": 15.555555555555555,
+  "height": 1440,
+  "rowCount": 6,
+  "rowHeight": 650,
+  "width": 2560,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 43, width is 3440 and height is 1440 1`] = `
+Object {
+  "columnCount": 11,
+  "columnWidth": 310,
+  "gutterSize": 10,
+  "height": 1440,
+  "rowCount": 4,
+  "rowHeight": 650,
+  "width": 3440,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 43, width is 3820 and height is 2160 1`] = `
+Object {
+  "columnCount": 12,
+  "columnWidth": 315.38461538461536,
+  "gutterSize": 15.384615384615385,
+  "height": 2160,
+  "rowCount": 4,
+  "rowHeight": 650,
+  "width": 3820,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 100, width is 240 and height is 120 1`] = `
+Object {
+  "columnCount": 1,
+  "columnWidth": 300,
+  "gutterSize": 0,
+  "height": 120,
+  "rowCount": 100,
+  "rowHeight": 650,
+  "width": 240,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 100, width is 360 and height is 240 1`] = `
+Object {
+  "columnCount": 1,
+  "columnWidth": 320,
+  "gutterSize": 20,
+  "height": 240,
+  "rowCount": 100,
+  "rowHeight": 650,
+  "width": 360,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 100, width is 640 and height is 480 1`] = `
+Object {
+  "columnCount": 2,
+  "columnWidth": 306.6666666666667,
+  "gutterSize": 6.666666666666667,
+  "height": 480,
+  "rowCount": 50,
+  "rowHeight": 650,
+  "width": 640,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 100, width is 1024 and height is 720 1`] = `
+Object {
+  "columnCount": 3,
+  "columnWidth": 326,
+  "gutterSize": 26,
+  "height": 720,
+  "rowCount": 34,
+  "rowHeight": 650,
+  "width": 1024,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 100, width is 1280 and height is 720 1`] = `
+Object {
+  "columnCount": 4,
+  "columnWidth": 312,
+  "gutterSize": 12,
+  "height": 720,
+  "rowCount": 25,
+  "rowHeight": 650,
+  "width": 1280,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 100, width is 1366 and height is 768 1`] = `
+Object {
+  "columnCount": 4,
+  "columnWidth": 329.2,
+  "gutterSize": 29.2,
+  "height": 768,
+  "rowCount": 25,
+  "rowHeight": 650,
+  "width": 1366,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 100, width is 1920 and height is 1080 1`] = `
+Object {
+  "columnCount": 6,
+  "columnWidth": 314.2857142857143,
+  "gutterSize": 14.285714285714286,
+  "height": 1080,
+  "rowCount": 17,
+  "rowHeight": 650,
+  "width": 1920,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 100, width is 2560 and height is 1440 1`] = `
+Object {
+  "columnCount": 8,
+  "columnWidth": 315.55555555555554,
+  "gutterSize": 15.555555555555555,
+  "height": 1440,
+  "rowCount": 13,
+  "rowHeight": 650,
+  "width": 2560,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 100, width is 3440 and height is 1440 1`] = `
+Object {
+  "columnCount": 11,
+  "columnWidth": 310,
+  "gutterSize": 10,
+  "height": 1440,
+  "rowCount": 10,
+  "rowHeight": 650,
+  "width": 3440,
+}
+`;
+
+exports[`Testing computeAvailableSpace should compute the available space when itemCount is 100, width is 3820 and height is 2160 1`] = `
+Object {
+  "columnCount": 12,
+  "columnWidth": 315.38461538461536,
+  "gutterSize": 15.384615384615385,
+  "height": 2160,
+  "rowCount": 9,
+  "rowHeight": 650,
+  "width": 3820,
+}
+`;

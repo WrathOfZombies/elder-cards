@@ -11,6 +11,7 @@ import { useMemoizedValue } from "utilities/use-memoized-value";
 import { IAvailableSpace } from "./compute-available-space";
 
 import type { ElderCard } from "apollo/schema";
+
 export interface ICardGridProps extends IAvailableSpace {
   innerRef: React.Ref<any>;
   items: ElderCard[];
@@ -53,7 +54,7 @@ export const CardGridItem: React.FC<GridChildComponentPropsWithData> = ({
    * space around effect
    */
   const leftWithGutter: number =
-    parseInt(style.left?.toString() ?? "0") + gutterSize / 2;
+    (parseInt(style.left?.toString() ?? "0") || 0) + gutterSize / 2;
 
   return item ? (
     <Box

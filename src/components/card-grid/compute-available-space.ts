@@ -34,7 +34,6 @@ export const computeAvailableSpace = ({
     MIN_ROW_OR_COLUMN; /* Min number of rows */
 
   const renderedWidth = columnCount * ITEM_WIDTH;
-  const renderedHeight = rowCount * ITEM_HEIGHT;
 
   // The gutter spacing can be calculated as:
   // GUTTER_SIZE = ((AVAILABLE_SPACE - MAX_SPACE_TAKEN_BY_COLMNS) / (TOTAL_COLUMS - 1)) / 2
@@ -49,7 +48,6 @@ export const computeAvailableSpace = ({
           (width - renderedWidth - WINDOWS_SCROLLBAR) / (columnCount + 1)
         )
       : 0;
-  // const gutterSize = 0;
 
   const columnWidth = ITEM_WIDTH + gutterSize;
   const rowHeight = ITEM_HEIGHT;
