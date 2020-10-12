@@ -2,7 +2,7 @@ import * as React from "react";
 import { shallow } from "enzyme";
 import { useMemoizedValue } from "utilities/use-memoized-value";
 
-import { CardGrid, ICardGridProps } from "./card-grid";
+import { CardGrid, ICardGridProps } from "./card-grid-renderer";
 
 jest.mock("utilities/use-memoized-value", () => ({
   useMemoizedValue: jest.fn(value => value),
@@ -10,7 +10,7 @@ jest.mock("utilities/use-memoized-value", () => ({
 
 jest.mock("./compute-available-space");
 
-describe("Testing CardGrid", () => {
+describe("Testing CardGridRenderer", () => {
   const generateMockProps = (
     overrides: Partial<ICardGridProps> = {}
   ): ICardGridProps => ({
