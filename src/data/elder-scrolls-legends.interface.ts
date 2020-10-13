@@ -1,4 +1,4 @@
-export interface IElderCard {
+export type ElderCard = {
   readonly id: string;
   readonly name: string;
   readonly rarity: string;
@@ -9,11 +9,11 @@ export interface IElderCard {
   readonly attributes: ReadonlyArray<string>;
   readonly keywords: ReadonlyArray<string>;
   readonly imageUrl: string;
-}
+};
 
-export interface IElderCardPage {
-  readonly cards: ReadonlyArray<IElderCard>;
+export type ElderCardPage = {
+  readonly cards: ReadonlyArray<ElderCard>;
   readonly nextPage?: string;
   readonly totalCount: number;
   readonly pageSize: number;
-}
+};

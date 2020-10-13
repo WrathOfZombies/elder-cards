@@ -8,21 +8,20 @@ import { Box } from "@fluentui/react-northstar";
 
 import { useMemoizedValue } from "utilities/use-memoized-value";
 
-import { IAvailableSpace } from "./compute-available-space";
+import { AvailableSpace } from "./compute-available-space";
+import { ElderCard } from "data/elder-scrolls-legends.interface";
 
-import type { IElderCard } from "apollo/schema";
-
-export interface ICardGridProps extends IAvailableSpace {
+export interface CardGridProps extends AvailableSpace {
   innerRef: React.Ref<any>;
-  items: IElderCard[];
+  items: ReadonlyArray<ElderCard>;
   itemCount: number;
-  itemRenderer: (item: IElderCard, index: number) => React.ReactElement | null;
+  itemRenderer: (item: ElderCard, index: number) => React.ReactElement | null;
   onItemsRendered: FixedSizeGridProps["onItemsRendered"];
 }
 
 interface ICardGridData {
-  itemRenderer: ICardGridProps["itemRenderer"];
-  items: ICardGridProps["items"];
+  itemRenderer: CardGridProps["itemRenderer"];
+  items: CardGridProps["items"];
   columnCount: number;
   gutterSize: number;
 }
@@ -31,49 +30,51 @@ type GridChildComponentPropsWithData = GridChildComponentProps & {
   data: ICardGridData;
 };
 
-export const CardGridItem: React.FC<GridChildComponentPropsWithData> = ({
-  columnIndex,
-  rowIndex,
-  style,
-  data,
-}) => {
-  const {
-    itemRenderer,
-    items,
-    columnCount,
-    gutterSize,
-  } = data as ICardGridData;
+export const CardGridItem: React.FC<GridChildComponentPropsWithData> = React.memo(
+  ({ columnIndex, rowIndex, style, data }) => {
+    const {
+      itemRenderer,
+      items,
+      columnCount,
+      gutterSize,
+    } = data as ICardGridData;
 
-  // From the row and column index, figure out the itemIndex
-  const itemIndex = rowIndex * columnCount + columnIndex;
-  const item = items[itemIndex];
+    // From the row and column index, figure out the itemIndex
+    const itemIndex = rowIndex * columnCount + columnIndex;
+    const item = items[itemIndex];
 
-  /**
-   * Add some space to the left of the card.
-   * This is typically gutterSize / 2 to simulate the
-   * space around effect
-   */
-  const leftWithGutter: number =
-    (parseInt(style.left?.toString() ?? "0") || 0) + gutterSize / 2;
+    /**
+     * Add some space to the left of the card.
+     * This is typically gutterSize / 2 to simulate the
+     * space around effect
+     */
+    const leftWithGutter: number =
+      (parseInt(style.left?.toString() ?? "0") || 0) + gutterSize / 2;
 
-  return item ? (
-    <Box
-      role="cell"
-      style={{
-        ...style,
-        left: leftWithGutter,
-        display: "flex",
-        justifyContent: "center",
-      }}
-      data-testid={`item-${item.id}`}
-      key={item.id}
-    >
-      {itemRenderer(item, itemIndex)}
-    </Box>
-  ) : null;
-};
+    return item ? (
+      <Box
+        role="cell"
+        style={{
+          ...style,
+          left: leftWithGutter,
+          display: "flex",
+          justifyContent: "center",
+          padding: "10px",
+        }}
+        data-testid={`item-${item.id}`}
+        key={item.id}
+      >
+        {itemRenderer(item, itemIndex)}
+      </Box>
+    ) : null;
+  }
+);
 
-export const CardGrid: React.FC<ICardGridProps> = React.memo(props => {
+const InnerElement = React.forwardRef<any, any>(({ style, ...rest }, ref) => (
+  <Box ref={ref} style={style} {...rest} />
+));
+
+export const CardGrid: React.FC<CardGridProps> = React.memo(props => {
   const { itemRenderer, items, innerRef, ...gridProps } = props;
   const { columnCount, gutterSize } = gridProps;
 
@@ -85,7 +86,12 @@ export const CardGrid: React.FC<ICardGridProps> = React.memo(props => {
   });
 
   return (
-    <Grid {...gridProps} ref={innerRef} itemData={itemData}>
+    <Grid
+      {...gridProps}
+      ref={innerRef}
+      itemData={itemData}
+      innerElementType={InnerElement}
+    >
       {CardGridItem}
     </Grid>
   );

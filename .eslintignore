@@ -4,9 +4,6 @@
 # testing
 /coverage
 
-# generated
-/src/apollo/schema
-
 # production
 /build
 

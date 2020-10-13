@@ -1,16 +1,16 @@
 import { reduce } from "lodash";
 
-import { IElderCard, IElderCardPage } from "./elder-scrolls-legends.interface";
+import { ElderCard, ElderCardPage } from "./elder-scrolls-legends.interface";
 
 const DEFAULT_PAGE_SIZE = 20;
 
-const convertToElderCard = (cards: any): IElderCard[] => {
+const convertToElderCard = (cards: any): ElderCard[] => {
   if (!cards) {
     return [];
   }
 
   cards = Array.isArray(cards) ? cards : [cards];
-  return reduce<any, IElderCard[]>(
+  return reduce<any, ElderCard[]>(
     cards,
     (acc, card) => {
       if (!card) {
@@ -18,7 +18,7 @@ const convertToElderCard = (cards: any): IElderCard[] => {
       }
 
       try {
-        const elderCard: IElderCard = {
+        const elderCard: ElderCard = {
           id: card.id,
           name: card.name,
           rarity: card.rarity,
@@ -41,7 +41,7 @@ const convertToElderCard = (cards: any): IElderCard[] => {
   );
 };
 
-const convertToElderCardsPage = (json: any): IElderCardPage => {
+const convertToElderCardsPage = (json: any): ElderCardPage => {
   if (!json) {
     return {
       cards: [],
@@ -59,7 +59,7 @@ const convertToElderCardsPage = (json: any): IElderCardPage => {
   };
 };
 
-export const fetchCards = async (page: string): Promise<IElderCardPage> => {
+export const fetchCards = async (page: string): Promise<ElderCardPage> => {
   const res = await fetch(page);
   const json = await res.json();
   return convertToElderCardsPage(json);
