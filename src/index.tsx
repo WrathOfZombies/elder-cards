@@ -3,9 +3,9 @@ import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom";
 
+import { ErrorBoundary } from "./components/error-boundary/error-boundary";
 import { ElderCardsApp } from "./elder-cards-app";
 import * as serviceWorker from "./serviceWorker";
-import { ErrorBoundary } from "components/error-boundary/error-boundary";
 
 ReactDOM.render(
   <React.StrictMode>

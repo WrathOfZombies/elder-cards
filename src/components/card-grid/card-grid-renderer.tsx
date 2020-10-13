@@ -1,15 +1,15 @@
+import { ElderCard } from "apollo/schema";
 import * as React from "react";
 import {
   FixedSizeGrid as Grid,
   FixedSizeGridProps,
   GridChildComponentProps,
 } from "react-window";
-import { Box } from "@fluentui/react-northstar";
-
 import { useMemoizedValue } from "utilities/use-memoized-value";
 
+import { Box } from "@fluentui/react-northstar";
+
 import { AvailableSpace } from "./compute-available-space";
-import { ElderCard } from "data/elder-scrolls-legends.interface";
 
 export interface CardGridProps extends AvailableSpace {
   innerRef: React.Ref<any>;

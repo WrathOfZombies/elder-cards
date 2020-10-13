@@ -1,4 +1,4 @@
-import { ElderCard } from "data/elder-scrolls-legends.interface";
+import { ElderCard } from "apollo/schema";
 import * as React from "react";
 
 import { Card, Flex, Image, Text } from "@fluentui/react-northstar";
@@ -10,17 +10,17 @@ export const MAX_CARD_HEIGHT = 670;
 const getRarityColor = (rarity?: string) => {
   switch (rarity) {
     case "Legendary":
-      return "#fcefb4";
+      return "rgba(252,239,180,1)";
 
     case "Epic":
-      return "#f6e9ff";
+      return "rgba(237,212,255,1)";
 
     case "Rare":
-      return "#c0c9fc";
+      return "rgba(192,201,252,1)";
 
     case "Common":
     default:
-      return;
+      return "rgba(226,226,226,1)";
   }
 };
 
@@ -32,11 +32,15 @@ export const BaseCard: React.FC<ElderCard> = React.memo(
       elevated
       centered
       aria-roledescription="card with avatar, image and action buttons"
-      styles={{ backgroundColor: getRarityColor(rarity) }}
+      styles={{
+        background: `radial-gradient(circle, rgba(255,255,255,1) 40%, ${getRarityColor(
+          rarity
+        )} 100%)`,
+      }}
     >
       <Card.Header>
         <Flex gap="gap.small" column hAlign="center">
-          <Text content={name} size="medium" weight="bold" />
+          <Text content={name} size="large" weight="semibold" />
         </Flex>
       </Card.Header>
       <Card.Body>
@@ -46,22 +50,23 @@ export const BaseCard: React.FC<ElderCard> = React.memo(
       </Card.Body>
       <Card.Footer>
         <Flex column gap="gap.small" hAlign="center">
-          <Label
-            key="setname"
-            circular
-            content={setname}
-            color="pink"
-            styles={{ padding: "0.6rem" }}
-          />
-          {subtypes.map(subtype => (
+          <Flex gap="gap.small" styles={{ flexWrap: "wrap" }}>
             <Label
-              key={subtype}
-              content={subtype}
+              key="setname"
               circular
-              color="red"
+              content={setname}
+              color="pink"
               styles={{ padding: "0.6rem" }}
             />
-          ))}
+            {subtypes.map(subtype => (
+              <Label
+                key={subtype}
+                content={subtype}
+                circular
+                styles={{ padding: "0.6rem" }}
+              />
+            ))}
+          </Flex>
           <Text temporary content={text} />
         </Flex>
       </Card.Footer>
