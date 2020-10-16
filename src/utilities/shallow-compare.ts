@@ -4,10 +4,11 @@ export function is<T>(left: T | number, right: T | number): boolean {
   // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
   if (left === right) {
     // If `left === right`, then differentiate `-0` and `0` via division.
-    return left !== 0 || 1 / left === 1 / <number>right;
+    return left !== 0 || 1 / left === 1 / (right as number);
   } else {
     // If `left !== right`, then return false unless both `left` and `right` are `NaN`.
     // `NaN` can be detected via `self !== self`.
+    // eslint-disable-next-line no-self-compare
     return left !== left && right !== right;
   }
 }
