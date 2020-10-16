@@ -3,7 +3,21 @@ schema {
 }
 
 type Query {
-  fetchCards: [ElderCard!]
+  cards(page: String): [ElderCardPage!]!
+}
+
+type ElderCardPage {  
+  # The collection of cards in this batch
+  cards: [ElderCard!]!
+
+  # The request url for the next page
+  nextPage: String
+
+  # The total number of items
+  totalCount: Int!
+
+  # The current page size
+  pageSize: Int!
 }
 
 type ElderCard {
@@ -20,19 +34,19 @@ type ElderCard {
   type: String!
 
   # The subtypes of the card (ex. Argonian, Dragon, Imperial)
-  subtype: String!
+  subtypes: [String!]!
 
   # The set that the card belongs to
   setname: String!
 
   # Rules of the card
-  text: String!
+  text: String
 
   # The attributes of the card (ex. Agility, Endurance, Intelligence)
-  attributes: [String!]
+  attributes: [String!]!
 
   # The keywords of the card (ex. Assemble, Breakthrough, Charge)
-  keywords: [String!]
+  keywords: [String!]!
 
   # The image of the card
   imageUrl: String!

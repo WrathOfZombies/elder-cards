@@ -5,7 +5,7 @@ import { BaseCard } from "./base-card";
 
 import type { IBaseCardProps } from "./base-card";
 
-describe("Testing ElderCard", () => {
+describe("Testing IElderCard", () => {
   let mockCardProps: IBaseCardProps;
 
   beforeEach(() => {

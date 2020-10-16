@@ -1,6 +1,6 @@
 overwrite: true
 schema: 'src/apollo/schema/schema.graphql'
-# documents: 'src/**/*.gql'
+# documents: 'src / ** / *. gql'
 generates:
   src/apollo/schema/generated.ts:
     plugins:
@@ -15,7 +15,7 @@ generates:
       withHooks: true      
       immutableTypes: true
       maybeValue: T | undefined
-      nonOptionalTypename: true
+      nonOptionalTypeName: true
       useTypeImports: true
       # noSchemaStitching: true
 hooks:

@@ -3,12 +3,15 @@ import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom";
 
+import { ErrorBoundary } from "./components/error-boundary/error-boundary";
 import { ElderCardsApp } from "./elder-cards-app";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ElderCardsApp />
+    <ErrorBoundary>
+      <ElderCardsApp />
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById("root")
 );
