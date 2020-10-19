@@ -1,15 +1,15 @@
-import { ElderCard, ElderCardPage, QueryCardsArgs } from "apollo/schema";
 import { isEmpty } from "lodash";
 import * as React from "react";
+import { ApolloQueryResult, gql, useQuery } from "@apollo/client";
 import { ListOnItemsRenderedProps } from "react-window";
 import InfiniteLoader from "react-window-infinite-loader";
 import { Text } from "@fluentui/react-northstar";
 
-import { ApolloQueryResult, gql, useQuery } from "@apollo/client";
+import { ElderCard, ElderCardPage, QueryCardsArgs } from "apollo/schema";
 
 export type OnItemsRendered = (props: ListOnItemsRenderedProps) => void;
 
-const FETCH_CARDS = gql`
+export const FETCH_CARDS = gql`
   query FetchCards($query: SearchQuery, $page: String) {
     cards(query: $query, page: $page) @client {
       cards {

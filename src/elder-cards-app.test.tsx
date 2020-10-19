@@ -2,25 +2,21 @@ import React from "react";
 import { shallow } from "enzyme";
 
 import { ElderCardsApp } from "./elder-cards-app";
-import { teamsTheme } from "@fluentui/react-northstar";
 
 jest.mock("./apollo/client", () => ({
   client: { id: "someMockClient" },
 }));
 
-jest.mock("./components/card-grid/card-grid-container", () => ({
-  CardGridContainer: () => <div data-testid="elder-cards-grid" />,
+jest.mock("components/card-grid/cards-layout", () => ({
+  CardsLayout: () => <div data-testid="elder-cards-grid" />,
 }));
 
 describe("Testing ElderCardsApp", () => {
-  test("should render a UI provider with the right theme", () => {
+  test("should render a theme provider", () => {
     const wrapper = shallow(<ElderCardsApp />);
-    const provider = wrapper.find("Provider");
+    const provider = wrapper.find("ThemeProvider");
 
-    expect(provider.props()).toMatchObject({
-      theme: teamsTheme,
-      id: "elder-cards-app",
-    });
+    expect(provider).toHaveLength(1);
   });
 
   test("should render an Apollo provider and pass the client to it", () => {
@@ -34,7 +30,7 @@ describe("Testing ElderCardsApp", () => {
 
   test("should render the card grid container entry point", () => {
     const wrapper = shallow(<ElderCardsApp />);
-    const grid = wrapper.find("CardGridContainer");
+    const grid = wrapper.find("CardsLayout");
 
     expect(grid).toHaveLength(1);
   });

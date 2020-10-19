@@ -2,7 +2,8 @@ import * as React from "react";
 import { shallow } from "enzyme";
 import { useMemoizedValue } from "utilities/use-memoized-value";
 
-import { CardGrid, CardGridProps } from "./card-grid-renderer";
+import { CardGrid, CardGridProps } from "./card-grid";
+import { computeAvailableSpace } from "./compute-available-space";
 
 jest.mock("utilities/use-memoized-value", () => ({
   useMemoizedValue: jest.fn(value => value),
@@ -15,18 +16,23 @@ describe("Testing CardGridRenderer", () => {
     overrides: Partial<CardGridProps> = {}
   ): CardGridProps => ({
     ...(overrides as CardGridProps),
-    columnCount: 2,
-    rowCount: 2,
-    columnWidth: 100,
-    rowHeight: 100,
-    gutterSize: 10,
-    itemCount: 5,
-    itemRenderer: jest.fn(),
     items: ([1, 2, 3, 4, 5] as unknown) as never,
     height: 200,
     width: 200,
     onItemsRendered: jest.fn(),
     innerRef: ({} as unknown) as never,
+  });
+
+  beforeEach(() => {
+    (computeAvailableSpace as jest.Mock).mockReturnValue({
+      width: 1024,
+      height: 768,
+      rowCount: 2,
+      columnCount: 2,
+      columnWidth: 200,
+      rowHeight: 200,
+      gutterSize: 10,
+    });
   });
 
   test("should render a grid with the right set of props", () => {
@@ -99,31 +105,6 @@ describe("Testing CardGridRenderer", () => {
       "data-uses-unhanded-props": true,
       onKeyDown: undefined,
       children: undefined,
-    });
-  });
-
-  test("should render a grid item with a gutter size", () => {
-    const props = generateMockProps({ gutterSize: 100 });
-    const wrapper = shallow(<CardGrid {...props} />);
-    const grid = wrapper.find("Grid");
-    const gridItem = (grid.prop("children") as unknown) as jest.Mock;
-
-    const firstCall = (useMemoizedValue as jest.Mock).mock.calls[0][0];
-
-    const mockGridItemProps = {
-      style: { someStyle: "someStyleValue", left: "100" },
-      rowIndex: 0,
-      columnIndex: 0,
-      data: firstCall,
-    };
-
-    const item = gridItem(mockGridItemProps);
-    const itemWrapper = shallow(item);
-
-    expect(itemWrapper.props()).toMatchObject({
-      style: expect.objectContaining({
-        left: 105,
-      }),
     });
   });
 

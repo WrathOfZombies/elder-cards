@@ -5,7 +5,7 @@ import { Flex, Header, Box } from "@fluentui/react-northstar";
 import { CardFetcher } from "components/card-fetcher/card-fetcher";
 import { CardSearch } from "components/card-search/card-search";
 
-import { CardGrid } from "./card-grid-renderer";
+import { CardGrid } from "./card-grid";
 
 const baseFlexStyles = {
   height: "100%",
@@ -25,7 +25,7 @@ const boxStyles = {
  * Renders the base layout for the page and sets up a communication between
  * the {@see CardSearch} in the header and the {@see CardFetcher} components
  */
-export const CardGridContainer: React.FC = React.memo(() => {
+export const CardsLayout: React.FC = React.memo(() => {
   const [search, setSearch] = React.useState<string>();
 
   return (
