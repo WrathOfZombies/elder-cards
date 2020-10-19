@@ -111,9 +111,8 @@ export const CardGrid: React.FC<CardGridProps> = React.memo(props => {
       itemData={itemData}
       innerElementType={InnerElement}
       onItemsRendered={onItemsRenderedCallback}
-    >
-      {Cell}
-    </Grid>
+      children={Cell}
+    />
   );
 });
 

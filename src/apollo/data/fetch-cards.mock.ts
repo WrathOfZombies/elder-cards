@@ -4,14 +4,12 @@ import { sample } from "lodash";
 export const fetchCards = (): Promise<ElderCardPage> =>
   Promise.resolve(createMockCardPage());
 
-export const createMockCard = (
-  overrides: Partial<ElderCard> = {}
-): ElderCard => ({
+export const createMockCard = (overrides: Partial<ElderCard> = {}): ElderCard => ({
   id: "ce7be2e72d6b06a52e50bed01952801ca4ecfade",
   name: "Raise Dead",
   rarity: "Legendary",
   type: "Action",
-  subtypes: [],
+  subtypes: ["Random"],
   setname: "Core Set",
   text: "Summon a random creature from each discard pile.",
   attributes: ["Endurance"],
