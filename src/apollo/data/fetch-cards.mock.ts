@@ -30,6 +30,7 @@ export const createMockCardPage = (
   nextPage: "https://api.elderscrollslegends.io/v1/cards?page=2&pageSize=20",
   totalCount: 500,
   pageSize: cardCount,
+  hasMore: true,
   ...overrides,
 });
 

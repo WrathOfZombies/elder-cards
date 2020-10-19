@@ -1,6 +1,7 @@
-import { MAX_CARD_HEIGHT, MAX_CARD_WIDTH } from "components/cards/base-card";
 import { Size } from "react-virtualized-auto-sizer";
 import { FixedSizeGridProps } from "react-window";
+
+import { MAX_CARD_HEIGHT, MAX_CARD_WIDTH } from "components/cards/trading-card";
 
 const MIN_ROW_OR_COLUMN = 1;
 
@@ -23,7 +24,9 @@ export const computeAvailableSpace = ({
   // Divide the available width into columns
   // NO_OF_COLUMNS = AVAILABLE_WIDTH / ITEM_WIDTH
   // NO_OF_ROWS = ITEMS_COUNT / COLUMNS;
-  const columnCount = Math.floor(width / MAX_CARD_WIDTH) || MIN_ROW_OR_COLUMN; /* Min number of columns */
+  const columnCount =
+    Math.floor(width / MAX_CARD_WIDTH) ||
+    MIN_ROW_OR_COLUMN; /* Min number of columns */
 
   const rowCount =
     Math.ceil(itemCount / columnCount) ||

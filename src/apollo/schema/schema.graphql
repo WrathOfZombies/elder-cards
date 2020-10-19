@@ -3,7 +3,8 @@ schema {
 }
 
 type Query {
-  cards(page: String): [ElderCardPage!]!
+  cards(query: String, page: String): [ElderCardPage!]!
+  downloadImage(src: String!): String
 }
 
 type ElderCardPage {  
@@ -18,6 +19,9 @@ type ElderCardPage {
 
   # The current page size
   pageSize: Int!
+
+  # Is there more data available
+  hasMore: Boolean!
 }
 
 type ElderCard {
@@ -51,3 +55,4 @@ type ElderCard {
   # The image of the card
   imageUrl: String!
 }
+

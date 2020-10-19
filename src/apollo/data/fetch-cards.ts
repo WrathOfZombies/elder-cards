@@ -11,6 +11,29 @@ const DEFAULT_PAGE_SIZE = 20;
 const BASE_URL = "https://api.elderscrollslegends.io/v1";
 
 /**
+ * Retrieves cards from the ElderScrolls API in a batch of specified
+ * amount of pageSize or 20 by default. It also supports filtering based on the
+ * provided search param.
+ * @param {string} search Any filter that needs to be applied on the name
+ * @param {string} page The current page, set this to undefined to start from the beginning
+ * @param {number} pageSize The size of the current page
+ * @returns {Promsie<ElderCardPage>} A promise containing an {@see ElderCardPage}
+ */
+export const fetchCards = async (
+  search?: string,
+  page?: string,
+  pageSize = DEFAULT_PAGE_SIZE
+): Promise<ElderCardPage> => {
+  let url = `${BASE_URL}/cards?page=1&pageSize=${pageSize}`;
+  url = search ? `${url}&name=${search}` : url;
+
+  const res = await fetch(page ?? url);
+  const json = await res.json();
+  const data = convertToElderCardsPage(json);
+  return data;
+};
+
+/**
  * Converts an array of {@see IElderScrollsCard} to the GQL normalized variant {@see ElderCard}
  * @param {IElderScrollsCard} cards The original set of cards returned from the API.
  * @returns {Array<ElderCard>} An array containing the converted card {@see ElderCard}
@@ -32,6 +55,7 @@ const convertToElderCard = (
 
       try {
         const elderCard: ElderCard = {
+          __typename: "ElderCard",
           id: card.id,
           name: card.name,
           rarity: card.rarity,
@@ -64,36 +88,21 @@ const convertToElderCardsPage = (
 ): ElderCardPage => {
   if (!json) {
     return {
+      __typename: "ElderCardPage",
       cards: [],
       totalCount: 0,
       pageSize: 20,
+      hasMore: false,
     };
   }
 
   const cards = convertToElderCard(json.cards);
   return {
+    __typename: "ElderCardPage",
     cards,
-    nextPage: json._links?.next,
+    nextPage: json._links?.next ?? "",
     totalCount: json._totalCount ?? 0,
     pageSize: json._pageSize ?? DEFAULT_PAGE_SIZE,
+    hasMore: !!json._links?.next,
   };
-};
-
-/**
- * Retrieves cards from the ElderScrolls API in a batch of specified
- * amount of pageSize or 20 by default.
- * @param {string} page The current page, set this to undefined to start from the beginning
- * @param {number} pageSize The size of the current page
- * @returns {Promsie<ElderCardPage>} A promise containing an {@see ElderCardPage}
- */
-export const fetchCards = async (
-  page?: string,
-  pageSize = DEFAULT_PAGE_SIZE
-): Promise<ElderCardPage> => {
-  const res = await fetch(
-    page ?? `${BASE_URL}/cards?page=1&pageSize=${pageSize}`
-  );
-  const json = await res.json();
-  const data = convertToElderCardsPage(json);
-  return data;
 };

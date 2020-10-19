@@ -5,6 +5,7 @@
   "dependencies": {
     "@apollo/client": "^3.2.3",
     "@fluentui/react-northstar": "^0.51.2",
+    "@fluentui/react-icons-northstar": "^0.51.2",
     "graphql": "^15.3.0",
     "lodash": "^4.17.20",
     "react-dom": "^16.13.1",
