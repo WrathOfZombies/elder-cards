@@ -1,40 +1,30 @@
-import { shallow } from "enzyme";
 import React from "react";
+import { shallow } from "enzyme";
 
-import { BaseCard } from "./base-card";
-
-import type { IBaseCardProps } from "./base-card";
+import { ElderCard } from "apollo/schema";
+import { createMockCard } from "apollo/data/fetch-cards.mock";
+import { TradingCard } from "./trading-card";
 
 describe("Testing IElderCard", () => {
-  let mockCardProps: IBaseCardProps;
+  let mockCardProps: ElderCard;
 
   beforeEach(() => {
-    mockCardProps = {
-      name: "Adoring Fan",
-      subtype: "Wood Elf",
-      setName: "Core Set",
-      text:
-        "Prophecy, Guard. Last Gasp: Adoring Fan will return. Adoring Fan is immune to Silence.",
-      imageUrl: "https://images.elderscrollslegends.io/cs/adoring_fan.png",
-      id: "21909c205c443aa683d32133514db5cc3435f712",
-      rarity: "Legendary",
-    };
+    mockCardProps = createMockCard();
   });
 
   test("should render an accessible card that is elevated and centered", () => {
-    const wrapper = shallow(<BaseCard {...mockCardProps} />);
+    const wrapper = shallow(<TradingCard {...mockCardProps} />);
     const card = wrapper.find("Card");
     expect(card.props()).toMatchObject({
       id: mockCardProps.id,
       "data-testid": mockCardProps.id,
       elevated: true,
       centered: true,
-      "aria-roledescription": "card with avatar, image and action buttons",
     });
   });
 
   test("should render a card with a header with the right structure", () => {
-    const wrapper = shallow(<BaseCard {...mockCardProps} />);
+    const wrapper = shallow(<TradingCard {...mockCardProps} />);
 
     const header = wrapper.find("CardHeader");
     const flex = header.find("Flex");
@@ -55,7 +45,7 @@ describe("Testing IElderCard", () => {
     });
 
     expect(text2.props()).toMatchObject({
-      content: mockCardProps.subtype,
+      content: mockCardProps.subtypes,
       size: "small",
       as: "span",
     });

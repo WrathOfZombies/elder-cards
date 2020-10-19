@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing ErrorBoundary should render a fallback component 1`] = `"<div id=\\"error\\" role=\\"alert\\" aria-label=\\"Something went wrong\\"><div class=\\"error-robot\\"></div></div>"`;

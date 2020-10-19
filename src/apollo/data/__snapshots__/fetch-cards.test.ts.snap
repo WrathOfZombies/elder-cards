@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing fetchCards should fetch some cards 1`] = `
+Object {
+  "__typename": "ElderCardPage",
+  "cards": Array [
+    Object {
+      "__typename": "ElderCard",
+      "attributes": Array [
+        "Endurance",
+      ],
+      "id": "4ce2dcfb9559e5bfee37bfb72bac55d45c95e7a8",
+      "imageUrl": "https://images.elderscrollslegends.io/hos/cave_bear.png",
+      "keywords": Array [],
+      "name": "Cave Bear",
+      "rarity": "Common",
+      "setname": "Heroes of Skyrim",
+      "subtypes": Array [
+        "Beast",
+      ],
+      "text": "",
+      "type": "Creature",
+    },
+  ],
+  "hasMore": true,
+  "nextPage": "https://api.elderscrollslegends.io/v1/cards?page=3&pageSize=20",
+  "pageSize": 20,
+  "totalCount": 1212,
+}
+`;
+
+exports[`Testing fetchCards should not throw if cards are empty 1`] = `
+Object {
+  "__typename": "ElderCardPage",
+  "cards": Array [],
+  "hasMore": true,
+  "nextPage": "https://api.elderscrollslegends.io/v1/cards?page=3&pageSize=20",
+  "pageSize": 20,
+  "totalCount": 1212,
+}
+`;
+
+exports[`Testing fetchCards should not throw if no data is returned 1`] = `
+Object {
+  "__typename": "ElderCardPage",
+  "cards": Array [],
+  "hasMore": false,
+  "pageSize": 20,
+  "totalCount": 0,
+}
+`;
+
+exports[`Testing fetchCards should not throw if some properties are missing 1`] = `
+Object {
+  "__typename": "ElderCardPage",
+  "cards": Array [
+    Object {
+      "__typename": "ElderCard",
+      "attributes": Array [],
+      "id": "4ce2dcfb9559e5bfee37bfb72bac55d45c95e7a8",
+      "imageUrl": "https://images.elderscrollslegends.io/hos/cave_bear.png",
+      "keywords": Array [],
+      "name": "Cave Bear",
+      "rarity": "Common",
+      "setname": "",
+      "subtypes": Array [],
+      "text": "some content",
+      "type": "Creature",
+    },
+  ],
+  "hasMore": true,
+  "nextPage": "https://api.elderscrollslegends.io/v1/cards?page=3&pageSize=20",
+  "pageSize": 20,
+  "totalCount": 1212,
+}
+`;
