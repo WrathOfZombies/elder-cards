@@ -1,43 +1,57 @@
+# Elder Scrolls: Legends
+
 [![CI](https://github.com/WrathOfZombies/elder-cards/workflows/CI/badge.svg)](https://github.com/WrathOfZombies/elder-cards/actions?query=workflow%3ACI)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+The project renders a list of cards downloaded from the ["https://api.elderscrollslegends.io/v1"]("https://api.elderscrollslegends.io/v1") API.
 
-### `yarn start`
+### Tech Stack
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+| Library               | Usage                                                                                     |
+| --------------------- | ----------------------------------------------------------------------------------------- |
+| React                 | UI Framework                                                                              |
+| FluentUI              | A component library that supports theming and is accessible                               |
+| Apollo                | Brings in powerful tools for us to manage client state and simply fetching of information |
+| React Window          | UI Virtualization library                                                                 |
+| React Infinite Loader | Inifinite loader library that works with React Window                                     |
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Running the project
 
-### `yarn test`
+1. Clone the repository
+2. In the root folder of the clone repo, run `yarn`
+3. Run `yarn start` and open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Project Navigation
 
-### `yarn build`
+#### Apollo
+All the apollo code WRT to the resolvers and the client configuration can be found in the [Apollo](.\src\apollo\client.ts) folder. The actual data fetching logic is implemented in the `fetch-cards.ts` file and the client schema is represented in `schema.graphql`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Components
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The starting point is the `elder-cards-app` file where we create the `ThemeProvider` and the `ApolloProvider`. From there `cards-layout` is rendered which then splits different complexities into different components.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Considerations
 
-### `yarn eject`
+The choice of Apollo was to achieve some of the advanced orchestration that is involved when working with paging, searching and filtering of information.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Additionally there's a lazy loading implementation available for images that was done to:
+1. Save network bandwidth when images are not being cached by the browser automatically
+2. Optimize the loading behaviour by silently swapping a placeholder to the final image when downloaded.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You can switch the theme of the page by using `ALT + T` or `OPT + T`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Areas of improvement
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Tests are incomplete. There seem to be mulitple issues with the combination of Enzyme, React 16.3+ and Apollo. I spent a while trying to debug this and ultimately decided to cut it due to meet the deadline. There are some tests in place to give an example of the general pattern that was followed.
+
+2. I18n implementation had to be skipped but A11y was considered with rudimentary support for Windows Narrator.
+
+3. A more advanced search can be implemented given enough time
+
+4. Blobs of images can be switched to using service worker to build a PWA instead of the current implementation
 
 ## Learn More
 
