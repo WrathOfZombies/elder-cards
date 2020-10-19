@@ -14,6 +14,8 @@ export const ThemeProvider: React.FC = ({ children }) => {
   const [isDarkTheme, toggleTheme] = React.useState(false);
 
   useEffect(() => {
+    // Simple keydown handler to toggle the theme everytime someone
+    // presses ALT + T or OPT + T
     const handler = (event: KeyboardEvent) => {
       if ((event.altKey || event.metaKey) && event.key.toUpperCase() === "T") {
         toggleTheme(theme => !theme);

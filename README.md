@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Project Overview
 
 The project renders a list of cards downloaded from the ["https://api.elderscrollslegends.io/v1"]("https://api.elderscrollslegends.io/v1") API.
+View demo on YouTube: [https://youtu.be/Ydhe5Ng5UcQ](https://youtu.be/Ydhe5Ng5UcQ)
 
 ### Tech Stack
 
