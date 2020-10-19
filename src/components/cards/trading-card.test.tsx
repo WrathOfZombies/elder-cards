@@ -20,7 +20,6 @@ describe("Testing IElderCard", () => {
       "data-testid": mockCardProps.id,
       elevated: true,
       centered: true,
-      "aria-roledescription": "card with avatar, image and action buttons",
     });
   });
 

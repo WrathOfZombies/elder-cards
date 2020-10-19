@@ -14,7 +14,7 @@ const baseFlexStyles = {
 
 const headerFlexStyles = { width: "100%", padding: "1rem" };
 
-const headerStyles = { margin: 0 };
+const headerStyles = { margin: 0, fontSize: "1.2rem", marginRight: "0.625rem" };
 
 const boxStyles = {
   width: "100%",
@@ -31,11 +31,7 @@ export const CardGridContainer: React.FC = React.memo(() => {
   return (
     <Flex column styles={baseFlexStyles}>
       <Flex vAlign="center" styles={headerFlexStyles}>
-        <Header
-          as="h2"
-          content="Elder Scrolls: Legends"
-          styles={headerStyles}
-        />
+        <Header as="h2" content="Legends" styles={headerStyles} />
         <CardSearch onSearch={setSearch} />
       </Flex>
       <Flex.Item grow>

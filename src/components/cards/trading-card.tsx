@@ -1,8 +1,8 @@
 import { ElderCard } from "apollo/schema";
 import * as React from "react";
+import { Card, Flex, Text, Animation, Label } from "@fluentui/react-northstar";
 
-import { Card, Flex, Text, Animation } from "@fluentui/react-northstar";
-import { Label } from "@fluentui/react-northstar/dist/es/components/Label/Label";
+import { useIsDarkTheme } from "components/theme/theme-provider";
 
 import { LazyImage } from "./lazy-image";
 
@@ -13,20 +13,20 @@ export const MAX_CARD_HEIGHT = 670;
  * A helper that provides a color based on the rarity.
  * @param rarity The rarity of the card
  */
-const getRarityColor = (rarity?: string) => {
+const getRarityColor = (rarity?: string, darkTheme = false) => {
   switch (rarity) {
     case "Legendary":
-      return "rgba(252,239,180,1)";
+      return darkTheme ? "rgba(154,132,33,1)" : "rgba(252,239,180,1)";
 
     case "Epic":
-      return "rgba(237,212,255,1)";
+      return darkTheme ? "rgba(124,65,168,1)" : "rgba(237,212,255,1)";
 
     case "Rare":
-      return "rgba(192,201,252,1)";
+      return darkTheme ? "rgba(100,113,190,1)" : "rgba(192,201,252,1)";
 
     case "Common":
     default:
-      return "rgba(226,226,226,1)";
+      return darkTheme ? "rgba(97,97,97,1)" : "rgba(226,226,226,1)";
   }
 };
 
@@ -49,10 +49,11 @@ export const TradingCard: React.FC<ElderCard> = React.memo(
         centered
         tabIndex={0}
         role="articlenN"
-        aria-label={`${name}, ${text}`}
+        aria-label={`${name}, A ${rarity} ${type} card of the set ${setname}. ${text}`}
         styles={{
-          background: `radial-gradient(circle, rgba(255,255,255,1) 40%, ${getRarityColor(
-            rarity
+          background: `radial-gradient(circle, rgba(0,0,0,0) 30%, ${getRarityColor(
+            rarity,
+            useIsDarkTheme()
           )} 100%)`,
         }}
       >

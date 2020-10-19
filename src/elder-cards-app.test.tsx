@@ -9,7 +9,7 @@ jest.mock("./apollo/client", () => ({
 }));
 
 jest.mock("./components/card-grid/card-grid-container", () => ({
-  ElderCardGrid: () => <div data-testid="elder-cards-grid" />,
+  CardGridContainer: () => <div data-testid="elder-cards-grid" />,
 }));
 
 describe("Testing ElderCardsApp", () => {
@@ -30,5 +30,12 @@ describe("Testing ElderCardsApp", () => {
     expect(provider.props()).toMatchObject({
       client: expect.objectContaining({ id: "someMockClient" }),
     });
+  });
+
+  test("should render the card grid container entry point", () => {
+    const wrapper = shallow(<ElderCardsApp />);
+    const grid = wrapper.find("CardGridContainer");
+
+    expect(grid).toHaveLength(1);
   });
 });
